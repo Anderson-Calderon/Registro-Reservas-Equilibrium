@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+a,a:hover{
+	text-decoration: none!important;
+	transition: all .3s;
+}
+.contenedor{
+
+
+	max-width: 1200px;
+	width: 90%;
+	margin: auto;
+}
+
+.imagen{
+
+	width: 100px;
+	position: relative;
+	left: 50%;
+	transform:translateX(-50%);
+	cursor: pointer;
+}
