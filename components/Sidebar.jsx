@@ -20,23 +20,13 @@ const Sidebar = ()=>{
 		        <a href="/">
 
 		          <i className="fa fa-home"></i>
-		          <span>Inicio</span>
-
-		        </a>
-
-		      </li>
-
-		      <li>
-
-		        <a href="reservas">
-
-		          <i className="fa fa-user"></i>
 		          <span>Reservas</span>
 
 		        </a>
 
 		      </li>
 
+		     
 		   
 		      
 
