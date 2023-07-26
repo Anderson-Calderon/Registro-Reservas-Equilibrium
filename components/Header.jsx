@@ -6,7 +6,7 @@ const Header = ()=>{
 			 <header className=" main-header">
   
         
-		         <a href="inicio" className="logo">
+		         <a href="/" className="logo">
 		            
 		          
 		            <span className="logo-mini">
