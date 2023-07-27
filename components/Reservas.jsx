@@ -1,5 +1,7 @@
 import { useState , useEffect} from 'react'
 
+import axios from 'axios';
+
 
 const Reservas = ()=>{
 	
@@ -67,8 +69,70 @@ useEffect(()=>{
   },[]);
 
 
+   const eliminarReserva = async (idReserva)=>{
 
-console.log(urlPago);
+
+    Swal.fire({
+      title: 'Eliminar Reserva',
+      text: "¿ Estás seguro de eliminar esta reserva ?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí!',
+      cancelButtonText:'Cancelar'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+
+
+      
+
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer Token`
+            }
+        }
+
+        await axios.delete("http://localhost:4000/api/usuarios/"+idReserva, config);
+
+
+
+    Swal.fire({
+      title: 'Reserva Eliminada',
+      text: "La reserva fue eliminada con éxito",
+      icon: 'success',
+   
+      confirmButtonColor: '#3085d6',
+    
+      confirmButtonText: 'Sí!'
+   
+    }).then((result) => {
+
+
+      if (result.isConfirmed) {
+
+
+      
+        window.location.href="/";
+
+
+
+
+
+        }
+      })
+
+
+
+
+
+
+      }
+    })
+
+
+    }
 
 
 
@@ -168,6 +232,15 @@ console.log(urlPago);
                                   <td>
                                     
                                     <a  className=" bg-indigo-400 text-white hover:text-white hover:bg-indigo-600  py-3 w-full text-center inline-block" href={`https://api.whatsapp.com/send?phone=+51914740170&text=Hola%20${reserva.nombre}%20👋%20,${reservaExitosa}%0ATe%20esperamos%20este%20${reserva.fecha}%20a%20las%20${reserva.hora}`} target="_blank" >Aceptar Reserva</a>
+
+                                    <button  
+                                       
+                                        className=" bg-red-600 text-white hover:text-white hover:bg-red-700  py-3 w-full text-center inline-block mt-5"   
+                                        onClick={()=>{eliminarReserva(reserva._id)}}    
+
+
+                                        >Eliminar </button>
+
 
                                   </td>
 

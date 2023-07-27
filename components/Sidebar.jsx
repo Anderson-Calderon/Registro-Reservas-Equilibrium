@@ -19,8 +19,8 @@ const Sidebar = ()=>{
 
 		        <a href="/">
 
-		          <i className="fa fa-home"></i>
-		          <span>Reservas</span>
+		          <i className="fa-solid fa-calendar-days"></i>
+		          <span>   Reservas</span>
 
 		        </a>
 
