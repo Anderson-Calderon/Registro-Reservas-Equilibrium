@@ -12,7 +12,7 @@ const [urlPago , setUrlPago] = useState("");
 
 let reservaExitosa = " tu reserva ha sido registrada con éxito.";
 
-
+console.log(urlPago);
 useEffect(()=>{
 
   const obtenerReservas = async ()=>{
@@ -136,6 +136,23 @@ useEffect(()=>{
 
 
 
+    //ESTABLECEMOS LA URL DE LA CAPTURA DE LA FOTO EN EL STATE , CUANDO LA PANTALLA SEA PEQUEÑA.
+
+    const establecerURLCaptura=(e,reserva)=>{
+
+      const tbody = document.querySelector("tbody");
+
+      const trChild = tbody.querySelectorAll("tr.child");
+
+     if(trChild){
+
+
+                    setUrlPago(reserva.captura);
+
+                }
+
+
+    }
 
 	return(
 
@@ -205,7 +222,13 @@ useEffect(()=>{
 
                       return (
 
-                                 <tr key={reserva._id}>
+                                 <tr 
+
+                                    onClick={(e)=>{establecerURLCaptura(e,reserva)}}
+                                    key={reserva._id}
+
+
+                                 >
                           
                                  
                                   <td>{reserva.nombre}</td>
