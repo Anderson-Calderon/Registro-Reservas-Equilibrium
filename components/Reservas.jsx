@@ -94,7 +94,7 @@ useEffect(()=>{
             }
         }
 
-        await axios.delete("http://localhost:4000/api/usuarios/"+idReserva, config);
+        await axios.delete("https://thawing-tor-28257-ac5d395f69e2.herokuapp.com/api/usuarios/"+idReserva, config);
 
 
 
