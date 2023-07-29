@@ -12,7 +12,7 @@ const [urlPago , setUrlPago] = useState("");
 
 let reservaExitosa = " tu reserva ha sido registrada con éxito.";
 
-console.log(urlPago);
+
 useEffect(()=>{
 
   const obtenerReservas = async ()=>{
@@ -136,21 +136,48 @@ useEffect(()=>{
 
 
 
-    //ESTABLECEMOS LA URL DE LA CAPTURA DE LA FOTO EN EL STATE , CUANDO LA PANTALLA SEA PEQUEÑA.
-
-    const establecerURLCaptura=(e,reserva)=>{
-
-      const tbody = document.querySelector("tbody");
-
-      const trChild = tbody.querySelectorAll("tr.child");
-
-     if(trChild){
 
 
-                    setUrlPago(reserva.captura);
+    const clickBody = (e)=>{
 
-                }
+      //ESTAMOS EN PANTALLA GRANDE , Y EN DICHA PANTALLA TODO FUNCIONA FENOMENAL !
+       if(!document.querySelector(".child")){
 
+      
+        return;
+
+       }
+
+      
+      
+        //ESTAMOS EN PANTALLA PEQUEÑA , Y EN DICHA PANTALLA HAY FALLOS !
+        if(e.target.classList.contains("bg-red-600")){
+
+           const trChild = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+
+
+           const urlCapturaPago = trChild.querySelector("img").getAttribute("src").replace(/[/.:]/g,"");
+
+
+           const trFather = document.querySelector(`tr[data-url-captura=${urlCapturaPago}]`);
+
+           const idReserva = trFather.getAttribute("data-id-reserva");
+
+           eliminarReserva(idReserva);
+
+        }else if(e.target.getAttribute("id")=="capturaPago"){
+
+
+            setUrlPago(e.target.getAttribute("src"));
+
+        }else if(e.target.getAttribute("data-target")=="#myModal"){
+
+                setUrlPago(e.target.querySelector("img").getAttribute("src"));
+
+        }
+
+
+   
 
     }
 
@@ -200,7 +227,7 @@ useEffect(()=>{
                  
                  <tr>
                    
-                
+                  
                    <th>Nombre</th>
                    <th>Apellidos</th>
                    <th>Telefono</th>
@@ -214,7 +241,11 @@ useEffect(()=>{
 
                 </thead>
 
-                <tbody>
+                <tbody
+
+                  onClick={(e)=>{clickBody(e)}}
+
+                >
 
                   {
 
@@ -224,14 +255,24 @@ useEffect(()=>{
 
                                  <tr 
 
-                                    onClick={(e)=>{establecerURLCaptura(e,reserva)}}
+                                  
                                     key={reserva._id}
+                                    data-id-reserva={reserva._id}
+                                    data-url-captura={reserva.captura.replace(/[/.:]/g,"")}
 
 
                                  >
                           
                                  
-                                  <td>{reserva.nombre}</td>
+                                  <td
+
+
+
+                                  >
+                                      {reserva.nombre}
+
+
+                                  </td>
                                   <td>{reserva.apellidos}</td>
                                   <td>{reserva.telefono}</td>
                                   <td>{reserva.servicio}</td>
@@ -247,7 +288,7 @@ useEffect(()=>{
                                         onClick={(e)=>{setUrlPago(reserva.captura)}}
 
                                    >
-                                     <img className="imagen" src={reserva.captura}  />
+                                     <img className="imagen" src={reserva.captura} id="capturaPago" />
                                    </a>
 
                                   </td>
