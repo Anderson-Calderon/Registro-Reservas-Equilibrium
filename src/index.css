@@ -47,7 +47,7 @@ a,a:hover{
 
 .wrapper{
 
-  height: auto;
+  height: 100vh!important;
   min-height: 100%!important;
 }
 
@@ -56,3 +56,21 @@ a,a:hover{
   min-height: 100vh!important;
 }
 
+.logo-login{
+
+  width: 150px;
+ margin: auto;
+}
+
+@media(max-width:768px){
+
+  .logo-lg img{
+
+    width: 200px;
+    
+    height: 62px;
+    margin: auto;
+
+  }
+
+}

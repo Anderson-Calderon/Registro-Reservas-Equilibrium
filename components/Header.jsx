@@ -1,5 +1,16 @@
+import useAuth from '../src/hooks/useAuth';
+
 const Header = ()=>{
 	
+	const {auth,setAuth,cargando} = useAuth();
+
+	const cerrarSesion = ()=>{
+
+		localStorage.removeItem("datos-usuario");
+		setAuth({});
+
+	}
+
 	return(
 
 
@@ -49,11 +60,11 @@ const Header = ()=>{
 		                  
 		                  <a href="#" className="dropdown-toggle" data-toggle="dropdown">
 
-		                    <img  src="/imagenes/usuario/cristian.jpg" className="user-image"/>
+		                    <img  src="/imagenes/usuario/usuario.png" className="user-image"/>
 
 
 		                    
-		                    <span className="hidden-xs">CRISTIAN</span>
+		                    <span className="hidden-xs">{auth.nombre}</span>
 
 		                  </a>
 
@@ -63,12 +74,26 @@ const Header = ()=>{
 		                    
 		                    <li className="user-body">
 		                      
-		                      <div className="pull-right">
+		                      <div className=" pull-left">
 		                        
-		                        <a href="#" className="btn btn-default btn-flat">ADMINISTRADOR</a>
+		                        <a href="#" className="btn btn-default btn-flat">
+
+		                        	{auth.area}
+
+
+		                        </a>
 
 		                      </div>
+		                      <div className="pull-right">
+		                        
+		                        <a href="#" onClick={()=>{cerrarSesion()}} className="btn btn-default btn-flat">
 
+		                        	CERRAR SESIÓN
+
+
+		                        </a>
+
+		                      </div>
 		                    </li>
 
 		                  </ul>

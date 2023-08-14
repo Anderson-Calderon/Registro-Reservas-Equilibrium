@@ -1,7 +1,10 @@
 import { useState , useEffect} from 'react'
 
 import axios from 'axios';
+import io from 'socket.io-client';
 
+
+let socket;
 
 const Reservas = ()=>{
 	
@@ -13,11 +16,21 @@ const [urlPago , setUrlPago] = useState("");
 let reservaExitosa = " tu reserva ha sido registrada con éxito.";
 
 
+
+
+
 useEffect(()=>{
+
+  //socket = io("http://localhost:4000");
+ 
+  
 
   const obtenerReservas = async ()=>{
 
-    const data = await fetch("https://thawing-tor-28257-ac5d395f69e2.herokuapp.com/api/usuarios");
+    //const data = await fetch("https://thawing-tor-28257-ac5d395f69e2.herokuapp.com/api/usuarios");
+   const data = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/reservas`);
+
+
     const reservas = await data.json();
 
     setReservas(reservas);
@@ -68,6 +81,18 @@ useEffect(()=>{
 
   },[]);
 
+  useEffect(()=>{
+
+ // socket = io("http://localhost:4000");
+
+  //  socket.on("reservas",(texto)=>{
+
+   //   console.log(texto);
+
+ //   })
+
+  });
+
 
    const eliminarReserva = async (idReserva)=>{
 
@@ -94,7 +119,7 @@ useEffect(()=>{
             }
         }
 
-        await axios.delete("https://thawing-tor-28257-ac5d395f69e2.herokuapp.com/api/usuarios/"+idReserva, config);
+        await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/reservas/${idReserva}`, config);
 
 
 
@@ -114,7 +139,7 @@ useEffect(()=>{
 
 
       
-        window.location.href="/";
+        window.location.href="/inicio/reservas";
 
 
 
@@ -295,7 +320,7 @@ useEffect(()=>{
 
                                   <td>
                                     
-                                    <a  className=" bg-indigo-400 text-white hover:text-white hover:bg-indigo-600  py-3 w-full text-center inline-block" href={`https://api.whatsapp.com/send?phone=+51914740170&text=Hola%20${reserva.nombre}%20👋%20,${reservaExitosa}%0ATe%20esperamos%20este%20${reserva.fecha}%20a%20las%20${reserva.hora}`} target="_blank" >Aceptar Reserva</a>
+                                    <a  className=" bg-indigo-400 text-white hover:text-white hover:bg-indigo-600  py-3 w-full text-center inline-block" href={`https://api.whatsapp.com/send?phone=+51${reserva.telefono}&text=Hola%20${reserva.nombre}%20👋%20,${reservaExitosa}%0ATe%20esperamos%20este%20${reserva.fecha}%20a%20las%20${reserva.hora}`} target="_blank" >Aceptar Reserva</a>
 
                                     <button  
                                        

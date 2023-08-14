@@ -1,5 +1,10 @@
+import useAuth from '../hooks/useAuth';
+
+
 const Inicio = ()=>{
 	
+  const {auth} = useAuth();
+
 
 	return(
 
@@ -40,7 +45,7 @@ const Inicio = ()=>{
             <div className="box-body contenedor">
 
             
-             	<h1 className="saludo text-3xl ">Hola , Cristian . Administras las reservas de Equilibrium , haciendo click  <a href="reservas" className="font-bold text-indigo-400"> aquí</a> </h1>
+             	<h1 className="saludo text-3xl ">Hola , {auth.nombre} . Administra las reservas de Equilibrium , haciendo click  <a href="/inicio/reservas" className="font-bold text-indigo-400"> aquí</a> </h1>
             
 
            </div>
