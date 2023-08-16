@@ -7,6 +7,7 @@ import useAuth from '../hooks/useAuth';
 const Usuarios = ()=>{
   
   const {usuarios,areas} = useAdmin();
+  const {auth} = useAuth();
 
   
 
@@ -335,9 +336,13 @@ useEffect(()=>{
 
                             <button 
 
+
                                 data-id={user._id}
                                 id="btn-eliminar"
-                                type="button" className="ml-5 btn bg-red-500 hover:text-white hover:bg-red-400 text-white"   >ELIMINAR
+                                type="button" className="ml-5 btn bg-red-500 hover:text-white hover:bg-red-400 text-white" 
+                                disabled={auth._id==id && true} 
+                                  >ELIMINAR
+                                
                                 
                                 </button>   
 
