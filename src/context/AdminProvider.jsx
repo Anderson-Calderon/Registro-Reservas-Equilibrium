@@ -11,7 +11,7 @@ const AdminProvider = ({children})=>{
 	const [areas,setAreas] = useState([]);
 	const [usuarios,setUsuarios] = useState([]);
 	//const [asistencias,setAsistencias] = useState([]);
-
+	console.log("HELLO");
 	const {pathname} = useLocation();
 
 	useEffect( ()=>{
