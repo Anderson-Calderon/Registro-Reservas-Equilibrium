@@ -12,9 +12,10 @@ const Reservas = ()=>{
 	
 const [reservas,setReservas] = useState([]);
 const [urlPago , setUrlPago] = useState("");
+const [establecerTabla,setEstablecerTabla] = useState(false);
 
 let reservaExitosa = " tu reserva ha sido registrada con éxito.";
-
+let iterador = 0;
 
 
 
@@ -35,11 +36,15 @@ useEffect(()=>{
 
     setReservas(reservas);
 
+    if(!establecerTabla){return}
+    
     setTimeout(()=>{
 
 
       $(".tablas").DataTable({
      "destroy": true,
+    
+
     "language": {
 
       "sProcessing":     "Procesando...",
@@ -70,7 +75,7 @@ useEffect(()=>{
   });
 
 
-    },500);
+    },0);
 
 
   }
@@ -79,7 +84,7 @@ useEffect(()=>{
 
 
 
-  },[]);
+  },[establecerTabla]);
 
   useEffect(()=>{
 
@@ -275,7 +280,17 @@ useEffect(()=>{
                   {
 
                     reservas.map((reserva)=>{
+                     iterador+=1;
+                     if(iterador==reservas.length){
+                              
+                      setTimeout(()=>{
 
+                        setEstablecerTabla(true);
+
+                      },500);
+
+                   }
+                     
                       return (
 
                                  <tr 
@@ -337,7 +352,7 @@ useEffect(()=>{
 
                               )
 
-
+                              
 
                     })
                   }

@@ -18,7 +18,7 @@ const Usuarios = ()=>{
   const [nuevoPassword,setNuevoPassword] = useState("");
   const {auth:{area}} = useAuth();
   
-
+ 
   if(area!="Gerencia"){
     
       location.href="/inicio";
@@ -28,51 +28,14 @@ const Usuarios = ()=>{
     
     }
    
-
+    const [establecerTabla,setEstablecerTabla] = useState(false);
+    let iterador = 0;
+  
 
 
 useEffect(()=>{
   
 
-
-
-
-    setTimeout(()=>{
-
-
-      $(".tablas").DataTable({
-     "destroy": true,
-    "language": {
-
-      "sProcessing":     "Procesando...",
-      "sLengthMenu":     "Mostrar _MENU_ registros",
-      "sZeroRecords":    "No se encontraron resultados",
-      "sEmptyTable":     "Ningún dato disponible en esta tabla",
-      "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
-      "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
-      "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-      "sInfoPostFix":    "",
-      "sSearch":         "Buscar:",
-      "sUrl":            "",
-      "sInfoThousands":  ",",
-      "sLoadingRecords": "Cargando...",
-      "oPaginate": {
-      "sFirst":    "Primero",
-      "sLast":     "Último",
-      "sNext":     "Siguiente",
-      "sPrevious": "Anterior"
-      },
-      "oAria": {
-        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-      }
-
-    }
-
-  });
-
-
-    },500);
 
 
   
@@ -115,6 +78,52 @@ useEffect(()=>{
 
 
   },[]);
+
+  useEffect(()=>{
+
+   
+    if(!establecerTabla){return}
+
+    setTimeout(()=>{
+
+    $(".tablas").DataTable({
+      "destroy": true,
+     "language": {
+ 
+       "sProcessing":     "Procesando...",
+       "sLengthMenu":     "Mostrar _MENU_ registros",
+       "sZeroRecords":    "No se encontraron resultados",
+       "sEmptyTable":     "Ningún dato disponible en esta tabla",
+       "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+       "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
+       "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+       "sInfoPostFix":    "",
+       "sSearch":         "Buscar:",
+       "sUrl":            "",
+       "sInfoThousands":  ",",
+       "sLoadingRecords": "Cargando...",
+       "oPaginate": {
+       "sFirst":    "Primero",
+       "sLast":     "Último",
+       "sNext":     "Siguiente",
+       "sPrevious": "Anterior"
+       },
+       "oAria": {
+         "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+         "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+       }
+ 
+     }
+ 
+   });
+ 
+ 
+     },0);
+
+
+
+
+  },[establecerTabla]);
 
 
 
@@ -307,7 +316,19 @@ useEffect(()=>{
 
                     usuarios &&  usuarios.map((user)=>{
 
-                  
+                      iterador+=1;
+
+                      if(iterador==usuarios.length){
+
+                        setTimeout(()=>{
+
+                          setEstablecerTabla(true);
+
+                        },500);
+
+                    }
+
+                    
                   const {_id:id , nombre,apellido,area,dni} = user;
                   return(
 
@@ -352,10 +373,18 @@ useEffect(()=>{
 
                           </td>
 
+                          
+
                         </tr>
+
+                        
 
 
                        )
+                      
+                     
+                       
+                    
 
                 })
 

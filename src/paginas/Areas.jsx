@@ -22,6 +22,8 @@ const Areas = ()=>{
 	
 	}
 
+	const [establecerTabla,setEstablecerTabla] = useState(false);
+    let iterador = 0;
 
 	useEffect(()=>{
 	
@@ -29,42 +31,6 @@ const Areas = ()=>{
 
 
 
-    setTimeout(()=>{
-
-
-      $(".tablas").DataTable({
-     "destroy": true,
-    "language": {
-
-      "sProcessing":     "Procesando...",
-      "sLengthMenu":     "Mostrar _MENU_ registros",
-      "sZeroRecords":    "No se encontraron resultados",
-      "sEmptyTable":     "Ningún dato disponible en esta tabla",
-      "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
-      "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
-      "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-      "sInfoPostFix":    "",
-      "sSearch":         "Buscar:",
-      "sUrl":            "",
-      "sInfoThousands":  ",",
-      "sLoadingRecords": "Cargando...",
-      "oPaginate": {
-      "sFirst":    "Primero",
-      "sLast":     "Último",
-      "sNext":     "Siguiente",
-      "sPrevious": "Anterior"
-      },
-      "oAria": {
-        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-      }
-
-    }
-
-  });
-
-
-    },500);
 
 
   
@@ -110,6 +76,50 @@ const Areas = ()=>{
   },[]);
 
 
+  useEffect(()=>{
+
+	if(!establecerTabla){return}
+
+    setTimeout(()=>{
+
+
+		$(".tablas").DataTable({
+	   "destroy": true,
+	  "language": {
+  
+		"sProcessing":     "Procesando...",
+		"sLengthMenu":     "Mostrar _MENU_ registros",
+		"sZeroRecords":    "No se encontraron resultados",
+		"sEmptyTable":     "Ningún dato disponible en esta tabla",
+		"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+		"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
+		"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+		"sInfoPostFix":    "",
+		"sSearch":         "Buscar:",
+		"sUrl":            "",
+		"sInfoThousands":  ",",
+		"sLoadingRecords": "Cargando...",
+		"oPaginate": {
+		"sFirst":    "Primero",
+		"sLast":     "Último",
+		"sNext":     "Siguiente",
+		"sPrevious": "Anterior"
+		},
+		"oAria": {
+		  "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+		  "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+		}
+  
+	  }
+  
+	});
+  
+  
+	  },0);
+
+
+
+  },[establecerTabla]);
 
 
 	const eliminarArea =  (idArea)=>{
@@ -278,7 +288,17 @@ const Areas = ()=>{
 
 							areas && areas.map((area)=>{
 
-
+													iterador+=1;
+												
+													if(iterador==areas.length){
+														
+														setTimeout(()=>{
+								
+														setEstablecerTabla(true);
+								
+														},500);
+								
+													}
 													const {nombre} = area;
 
 													return(
