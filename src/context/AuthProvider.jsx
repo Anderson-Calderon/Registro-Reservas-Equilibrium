@@ -15,6 +15,8 @@ const AuthProvider = ({children})=>{
 	const [auth,setAuth] = useState({});
 	const [cargando , setCargando] = useState(true);
 
+	console.log(import.meta.env.VITE_BACKEND_URL);
+
 	const navigate = useNavigate()
 
 	useEffect(()=>{
