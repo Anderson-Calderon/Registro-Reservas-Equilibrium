@@ -288,6 +288,8 @@ const Areas = ()=>{
 
 							areas && areas.map((area)=>{
 
+								
+
 													iterador+=1;
 												
 													if(iterador==areas.length){
@@ -304,7 +306,7 @@ const Areas = ()=>{
 													return(
 
 
-																<tr  key={area._id}>
+																<tr id={nombre=="Cliente" ? "ocultar-fila":""} key={area._id}>
 							
 																	<td>{nombre}</td>
 																	<td>

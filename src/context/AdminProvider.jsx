@@ -10,8 +10,10 @@ const AdminProvider = ({children})=>{
 
 	const [areas,setAreas] = useState([]);
 	const [usuarios,setUsuarios] = useState([]);
-	//const [asistencias,setAsistencias] = useState([]);
-	console.log("HELLO");
+	const [servicios,setServicios] = useState([]);
+
+	const [numeroReservasPorFecha , setNumeroReservasPorFecha] = useState([]);
+	
 	const {pathname} = useLocation();
 
 	useEffect( ()=>{
@@ -34,18 +36,35 @@ const AdminProvider = ({children})=>{
 
 		}
 
-		const obtenerAsistencias = async ()=>{
+		const obtenerServicios = async ()=>{
 
-			const {data} = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/asistencias`);
-			setAsistencias(data);
+			const {data} = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/servicios`);
+			
 
+			setServicios(data);
 
 		}
+
+		
+
+		const obtenerNumeroDeReservasPorFecha = async ()=>{
+
+            const {data} = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/reservas/obtenerNumeroDeReservasPorFecha`);
+
+		
+        
+			setNumeroReservasPorFecha(data);
+		
+          
+
+        }
 
 
 		obtenerAreas();
 		obtenerUsuarios();
-		//obtenerAsistencias();
+		obtenerServicios();
+		obtenerNumeroDeReservasPorFecha(); 
+		
 
 	},[]);
 
@@ -63,6 +82,10 @@ const AdminProvider = ({children})=>{
 								setAreas,
 								usuarios,
 								setUsuarios,
+								servicios,
+								setServicios,
+								numeroReservasPorFecha,
+								setNumeroReservasPorFecha,
 								pathname
 								
 

@@ -36,13 +36,13 @@ const Sidebar = ()=>{
 				pathname=pathname.replace("/inicio/","");
 			
 
-				if(area!="Gerencia" && (pathname!="reservas"  || pathname!="inicio"  ) ){
-					console.log("HOLA");
+				if(area!="Gerencia" && (pathname!="historial-reservas"  || pathname!="inicio"  ) ){
+					
 					return;
 
 				}
 
-				 document.querySelector("#"+pathname).classList.add("active");
+				document.querySelector("#"+pathname).classList.add("active");
 
 			}
 
@@ -77,21 +77,58 @@ const Sidebar = ()=>{
 
 		      </li>
 
-		      <li id="reservas" >
+		      <li id="historial-reservas" >
 
 		        <a 
 
 		        		
-		        	href="/inicio/reservas">
+		        	href="/inicio/historial-reservas">
 
-		          <i className="fa-solid fa-calendar-days"></i>
-		          <span> Reservas </span>
+		          <i className="fa fa-history"></i>
+		          <span> Historial Reservas </span>
 
 		        </a>
 
 		      </li>
 
 
+			  <li id="reservas-calendario" >
+
+				<a 
+
+						
+					href="/inicio/reservas-calendario">
+
+				<i className="fa-solid fa-calendar-days"></i>
+				<span> Reservas  </span>
+
+				</a>
+
+			  </li>
+
+			  {
+
+					area=="Gerencia" && (
+
+			  <li id="servicios" >
+
+					<a 
+
+							
+						href="/inicio/servicios">
+
+					<i class="fa fa-list-alt" aria-hidden="true"></i>
+					<span> Servicios </span>
+
+					</a>
+
+				</li>
+
+
+					)
+			}		
+			
+			
 		      {
 
 		      	area=="Gerencia" && (

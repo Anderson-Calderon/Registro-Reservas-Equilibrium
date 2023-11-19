@@ -13,9 +13,13 @@ import {AdminProvider} from './context/AdminProvider';
 import {AuthProvider} from './context/AuthProvider';
 
 import Inicio from './paginas/Inicio';
-import Reservas from './paginas/Reservas';
+import HistorialReservas from './paginas/HistorialReservas';
 import Usuarios from './paginas/Usuarios';
 import Areas from './paginas/Areas';
+
+import Servicios from './paginas/Servicios';
+
+import ReservasCalendario from './paginas/ReservasCalendario';
 
 import AuthLayout from '../layouts/AuthLayout';
 
@@ -60,10 +64,11 @@ function App() {
                 <Route  path="/inicio" element={<RutaProtegida />}  >
 
                   <Route  index  element={<Inicio />} />
-                  <Route  path="reservas"  element={<Reservas />} />
+                  <Route  path="historial-reservas"  element={<HistorialReservas />} />
                   <Route  path="usuarios"  element={<Usuarios />} />
                   <Route  path="areas"  element={<Areas />} />
-                  
+                  <Route  path="reservas-calendario"  element={<ReservasCalendario />} />
+                  <Route  path="servicios"  element={<Servicios />} />
 
 
                 </Route>

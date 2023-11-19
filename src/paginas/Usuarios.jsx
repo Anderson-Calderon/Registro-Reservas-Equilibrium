@@ -316,6 +316,8 @@ useEffect(()=>{
 
                     usuarios &&  usuarios.map((user)=>{
 
+                   
+
                       iterador+=1;
 
                       if(iterador==usuarios.length){
@@ -333,7 +335,7 @@ useEffect(()=>{
                   return(
 
 
-                        <tr key={id}>
+                        <tr id={nombre == "Cliente" ? "ocultar-fila" : ""} key={id}>
 
                           <td>{dni}</td>
                           <td>{nombre}</td>

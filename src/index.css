@@ -15,13 +15,16 @@ a,a:hover{
   margin: auto;
 }
 
-.imagen{
 
-  width: 100px;
+#capturaPago{
+
+  width: 180px!important;
+  max-width: 180px!important;
   position: relative;
   left: 50%;
   transform:translateX(-50%);
   cursor: pointer;
+
 }
 
 .header{
@@ -73,4 +76,140 @@ a,a:hover{
 
   }
 
+}
+
+
+/*CALENDARIO FULL  CALENDAR*/
+.pintar-fecha-seleccionada{
+
+background-color: rgb(131,211,203,.6);
+color: rgb(35,82,124)!important;
+
+
+}
+
+.pintar-fecha-seleccionada .fc-daygrid-day-top a{
+  font-size: 25px!important;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  font-weight: bold;
+ 
+
+}
+
+
+.fc-day {
+  cursor: pointer;
+  
+}
+
+#calendar{
+
+
+   width: 800px;
+    /*height: 200px;*/
+    margin: auto;
+
+}
+
+.fc-prev-button,
+.fc-next-button {
+  font-size: 10px!important; /* Ajusta el tamaño según sea necesario */
+  width: 30px!important; /* Ajusta el ancho según sea necesario */
+  height: 30px!important; /* Ajusta la altura según sea necesario */
+}
+
+.vacio{
+
+  font-weight: bold;
+  text-align: center;
+
+}
+
+/*DATE PICKER*/
+
+.ui-datepicker {
+  z-index: 9999 !important;
+}
+
+.pintar-texto-rojo {
+
+  
+  color: #333333;
+
+ 
+
+}
+
+
+.posicionar-x{
+
+  margin-top: -20px!important;
+  opacity: 1;
+
+}
+
+
+
+.contenedor-horas{
+
+  margin-top: 2rem;
+
+}
+.horas{
+
+  display: grid;
+  grid-template-columns: repeat(5 , 1fr);
+ 
+
+}
+
+.horas span{
+
+  background-color: gray;
+  border: 1px solid white;
+  text-align: center;
+  padding: .5rem;
+  cursor: pointer;
+
+
+}
+
+.horas span:hover{
+
+  color:white;
+  
+
+}
+
+.activo{
+
+  color: white;
+  font-weight: bold;
+  background-color: orange!important;
+
+}
+
+
+.reserva-aceptada td{
+
+  background-color: rgba(131, 211, 203, .3)!important;
+  color:  #333;
+  border:2px solid white;
+ 
+
+}
+
+.fondo-aceptar-reserva{
+
+  background-color: white!important;
+  color:  #333;
+
+
+}
+
+#ocultar-fila{
+
+  display: none!important;
 }
