@@ -25,6 +25,8 @@ import useAuth from '../hooks/useAuth';
 const ReservasCalendario = ()=>{
 
     const {numeroReservasPorFecha, setNumeroReservasPorFecha,servicios} = useAdmin();
+    console.log("ESTAS SON LAS RESERVAS POR FECHA AL PINTAL AL CALENDARIO");
+    console.log(numeroReservasPorFecha);
     const {auth} = useAuth();
     console.log(auth);
    
