@@ -8,7 +8,7 @@ import fechasSinCupo from "../helpers/FechasSinCupo";
 import datePickerEspaniol from "../helpers/DatePickerEspaniol";
 import inicializarDatePicker from "../helpers/InicializarDatePicker";
 
-import getHoraYMinutoActual from "../helpers/getHoraYMinutoActual";
+import getHoraYMinutoActual from "../helpers/GetHoraYMinutoActual";
 import setHabilitarOptions from "../helpers/SetHabilitarOptions";
 import setBloquearOptions from "../helpers/setBloquearOptions";
 
