@@ -10,7 +10,7 @@ import inicializarDatePicker from "../helpers/InicializarDatePicker";
 
 import getHoraYMinutoActual from "../helpers/GetHoraYMinutoActual";
 import setHabilitarOptions from "../helpers/SetHabilitarOptions";
-import setBloquearOptions from "../helpers/setBloquearOptions";
+import setBloquearOptions from "../helpers/SetBloquearOptions";
 
 import fechaLarga from "../helpers/FechaLarga";
 
