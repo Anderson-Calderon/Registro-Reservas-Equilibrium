@@ -533,7 +533,7 @@ useEffect(()=>{
        
          //Obtenemos todas las reservas que tengan una fecha de reservación mayor o igual a la de hoy. 
          const {data} = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/reservas/obtenerReservasAPartirDeHoy`); 
-        
+         console.log(data);
          let registros = data;
 
 
