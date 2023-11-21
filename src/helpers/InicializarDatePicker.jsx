@@ -24,7 +24,7 @@ const inicializarDatePicker = (fechaHoyMasUno,fechaFormateada,misFechasBloqueada
           
               condicional1 = (misFechasBloqueadas.includes(dateString) ),
 
-              condicional2 = (date.getDay() == 0 || date.getDay() == 6);
+              condicional2 = (date.getDay() == 0 || date.getDay() == 0);
 
 
 
