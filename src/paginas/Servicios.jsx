@@ -477,12 +477,12 @@ const Servicios = ()=>{
       <div id="editar-horas-seleccionadas" onClick={(e)=>{editarContenedorHoras(e)}} className="contenedor-horas">
 
         <div className="horas">
-        
-          <span className={ objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="09:30 a. m." ).length >  0  ? "activo" : ""  }   >09:30 a. m.</span>
+        <span className={ objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="09:00 a. m." ).length >  0  ? "activo" : ""  }>09:00 a. m.</span>
+          <span className={ objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="09:30 a. m." ).length >  0  ? "activo" : ""  }>09:30 a. m.</span>
           <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="10:00 a. m." ).length >  0  ? "activo" : "" }>10:00 a. m.</span>
           <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="10:30 a. m." ).length >  0  ? "activo" : "" }>10:30 a. m.</span>
           <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="11:00 a. m." ).length >  0  ? "activo" : "" }>11:00 a. m.</span>
-          <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="11:30 a. m." ).length >  0  ? "activo" : "" }>11:30 a. m.</span>
+          
 
           
 
@@ -490,6 +490,19 @@ const Servicios = ()=>{
 
         <div className="horas">
 
+          <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="11:30 a. m." ).length >  0  ? "activo" : "" }>11:30 a. m.</span>
+          <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="12:00 p. m." ).length >  0  ? "activo" : "" }>12:00 p. m.</span>
+          <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="12:30 p. m." ).length >  0  ? "activo" : "" }>12:30 p. m.</span>
+          <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="13:00 p. m." ).length >  0  ? "activo" : "" }>13:00 p. m.</span>
+          <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="13:30 p. m." ).length >  0  ? "activo" : "" }>13:30 p. m.</span>
+
+
+
+        </div>
+
+        <div className="horas">
+
+          
           <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="14:00 p. m." ).length >  0  ? "activo" : "" }>14:00 p. m.</span>
           <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="14:30 p. m." ).length >  0  ? "activo" : "" }>14:30 p. m.</span>
           <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="15:00 p. m." ).length >  0  ? "activo" : "" }>15:00 p. m.</span>
@@ -499,7 +512,17 @@ const Servicios = ()=>{
 
 
 
-          </div>
+        </div>  
+
+
+        
+        <div className="horas">
+
+          <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="16:30 p. m." ).length >  0  ? "activo" : "" }>16:30 p. m.</span>
+          <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="17:00 p. m." ).length >  0  ? "activo" : "" }>17:00 p. m.</span>
+          <span className={  objetoServicio?.horasSeleccionadas?.filter((horaSeleccionada)=>  horaSeleccionada=="17:30 p. m." ).length >  0  ? "activo" : "" }>17:30 p. m.</span>
+
+        </div> 
 
       </div> 
 
@@ -556,16 +579,26 @@ const Servicios = ()=>{
       <div onClick={(e)=>{contenedorHoras(e)}} className="contenedor-horas">
 
         <div className="horas">
-
+          <span>09:00 a. m.</span>
           <span>09:30 a. m.</span>
           <span>10:00 a. m.</span>
           <span>10:30 a. m.</span>
           <span>11:00 a. m.</span>
-          <span>11:30 a. m.</span>
+          
 
           
 
         </div>
+
+        <div className="horas">
+          <span>11:30 a. m.</span>
+          <span>12:00 p. m.</span>
+          <span>12:30 p. m.</span>
+          <span>13:00 p. m.</span>
+          <span>13:30 p. m.</span>
+
+
+          </div>
 
         <div className="horas">
 
@@ -574,11 +607,17 @@ const Servicios = ()=>{
           <span>15:00 p. m.</span>
           <span>15:30 p. m.</span>
           <span>16:00 p. m.</span>
+
+        </div>   
+
+        <div className="horas">
+
+          <span>16:30 p. m.</span>
+          <span>17:00 p. m.</span>
+          <span>17:30 p. m.</span>
         
 
-
-
-          </div>
+        </div> 
 
       </div>            
 		  

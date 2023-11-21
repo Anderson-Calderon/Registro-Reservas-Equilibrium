@@ -209,11 +209,11 @@ useEffect(()=>{
                           nombre:nombre,
                           apellidos:apellidos,
                           acciones : reserva.aceptada ? `<td><button class=" fondo-aceptar-reserva text-black   py-3 w-full text-center inline-block mt-5 cursor-default">LA RESERVA YA FUE ACEPTADA</button> </td> ` : 
-                              (  ` <td>
+                          auth.area=="Gerencia" ? (  ` <td>
                         
                                         <a  id=${reserva._id} class=" bg-teal-400 text-white hover:text-white hover:bg-teal-500  py-3 w-full text-center inline-block" href=${reservaExitosa} target="_blank" >Aceptar Reserva</a>
 
-                                        <button  
+                                     <button  
                                           
                                             class="bg-red-600 text-white hover:text-white hover:bg-red-700  py-3 w-full text-center inline-block mt-5"   
                                             data-id-reserva=${reserva._id} 
@@ -224,7 +224,16 @@ useEffect(()=>{
                                         </button>
 
 
-                                  </td>`)
+                                  </td>`):(
+
+                                    ` <td>
+                        
+                                        <a  id=${reserva._id} class=" bg-teal-400 text-white hover:text-white hover:bg-teal-500  py-3 w-full text-center inline-block" href=${reservaExitosa} target="_blank" >Aceptar Reserva</a>
+
+                                 
+                                  </td>`
+
+                                  )
 
                         } 
 
@@ -626,6 +635,11 @@ useEffect(()=>{
 
         e.preventDefault();
 
+        const btnAgregarReserva = document.querySelector("#agregar-reserva");
+        btnAgregarReserva.disabled=true;
+        btnAgregarReserva.value="Reservando ...";
+        
+
         const nombre = document.querySelector("#form-field-nombre").value,
               apellidos = document.querySelector("#form-field-apellidos").value,
               telefono = document.querySelector("#form-field-telefono").value,
@@ -668,13 +682,16 @@ useEffect(()=>{
                
               });
 
-              if(respuesta.status==400){
+              
+
+             if(respuesta.status==400){
              
-                alertaEditarAgregarError("Error","¡Error al realizar la reserva!","error",window.location.href);
+                alertaEditarAgregarError("Error","No hay cupo para la hora y fecha seleccionada. Por favor vuelva a seleccionar otra,Gracias.","error",window.location.href);
 
                 return;
             }
-
+              btnAgregarReserva.disabled=false;
+              btnAgregarReserva.value="Agregar Reserva";
              alertaEditarAgregarError("Éxito","¡Reserva realizada con éxito!","success",window.location.href);
 
 
@@ -998,7 +1015,7 @@ useEffect(()=>{
 
 
 
-        <input type="submit" className="mt-5 bg-indigo-500 hover:bg-sky-500 btn text-white hover:text-white" value="Agregar Reserva"  />
+        <input id="agregar-reserva" type="submit" className="mt-5 bg-indigo-500 hover:bg-sky-500 btn text-white hover:text-white" value="Agregar Reserva"  />
 
 
         </form>
