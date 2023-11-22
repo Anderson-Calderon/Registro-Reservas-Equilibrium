@@ -795,12 +795,12 @@ useEffect(()=>{
 
          
 
-            <InformacionNumericaDeLasReservasSeleccionadas 
+            {/* <InformacionNumericaDeLasReservasSeleccionadas 
 
                 dataTotalDeServiciosAceptadosPorFecha={dataTotalDeServiciosAceptadosPorFecha}
                 totalGananciaPorFecha = {totalGananciaPorFecha}
 
-            />
+            /> */}
 
          </div>
 
